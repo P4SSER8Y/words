@@ -7,4 +7,5 @@ This is something about ROS.
    :maxdepth: 2
 
    template_cpp
+   orocos_kdl
 
