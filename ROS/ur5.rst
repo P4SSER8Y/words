@@ -1,11 +1,9 @@
 Universal Robot 5
 =================
 
-:highlight: bash
-
 UR5 robot arm.
 
-**NOTE** 
+**NOTE**
     This note is for ROS Kinetic Kame.
 
 Installation
@@ -50,10 +48,10 @@ Installation
 
     1. download the software
 
-        Goto https://www.universal-robots.com/download/ and select *Software*, *Offline Simulator*, 
+        Goto https://www.universal-robots.com/download/ and select *Software*, *Offline Simulator*,
         *Linux*, *ursim-<vesrion>*. Then click *Download*.
 
-    #. unzip the downloaded file 
+    #. unzip the downloaded file
     #. install with ::
 
         ./ursim-<version>/install.h
@@ -61,7 +59,7 @@ Installation
     #. run the simulator with ::
 
         ./ursim-<version>/start-ursim.h
-    
+
     #. the IP address of this "robot" should be `127.0.0.1`
 
 Run
@@ -139,7 +137,7 @@ direct URScript (Advanced) ⚠
 
 + message type: ``std_msgs::String``
 + topic name: ``ur_driver/URScript``
-+ official document: 
++ official document:
 
     - goto https://www.universal-robots.com/download/
     - select *Manuals - user, software and script*, *SW<version>*, *Script manual*
