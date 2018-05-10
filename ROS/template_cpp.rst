@@ -145,4 +145,3 @@ Client
     ActionGoalType goal;
     // fill in goal
     ac.sendGoal(goal);
-    

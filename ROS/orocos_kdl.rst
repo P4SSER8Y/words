@@ -1,60 +1,58 @@
 Orocos-KDL
 ==========
 
-Orocos-KDL 机器人运动学/动力学计算库。
+Official website: http://www.orocos.org/kdl
 
-官方主页： http://www.orocos.org/kdl
-
-ROS 安装 & 使用
----------------
+Packages for ROS Installation
+-----------------------------
 
 .. highlight:: bash
 
-指令
-    + ``sudo apt-get install ros-<distro>-orocos-kdl  # Orocos-KDL 主库``
-    + ``sudo apt-get install ros-<distro>-kdl-parser  # 模型解释库``
+Installation
+    + ``sudo apt-get install ros-<distro>-orocos-kdl  # Orocos-KDL main library``
+    + ``sudo apt-get install ros-<distro>-kdl-parser  # model file parser``
 
-链接文件
+Link files
     + orocos-kdl
     + kdl_parser
 
-引用文件
-    + ``kdl/kdl_parser.hpp``  模型解释库
-    + ``kdl/chain.hpp``  运动链定义
-    + ``kdl/frames.hpp``  坐标框定义
-    + ``kdl/jntarray.hpp``  关节空间坐标定义
-    + ``kdl/chainfksolverXXX_YYY.hpp`` 正向运动学/动力学解算
-    + ``kdl/chainiksolverXXX_YYY.hpp`` 逆向运动学/动力学解算
+Include files
+    + ``kdl/kdl_parser.hpp``  model parser
+    + ``kdl/chain.hpp``
+    + ``kdl/frames.hpp``  declaration for frames
+    + ``kdl/jntarray.hpp``  declaration for joint-state variables
+    + ``kdl/chainfksolverXXX_YYY.hpp`` forward kinematics/dynamics solver
+    + ``kdl/chainiksolverXXX_YYY.hpp`` inverse kinematics/dynamics solver
 
-生成模型
---------
+Generate Models
+---------------
 
-.xacro 转换为 urdf 文件
-~~~~~~~~~~~~~~~~~~~~~~~
+convert .xacro file to .urdf file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
 
     rosrun xacro xacro --inorder <xacro_input_file> > <urdf_output_file>
 
-用例
+Usage
 ----
 
 .. highlight:: cpp
 
 
-解释模型
-~~~~~~~~
+Parse Models
+~~~~~~~~~~~~
 
 .. code-block:: cpp
 
-    KDL::Tree tree;                              // 模型描述树
-    kdl_parser::treeFromFile(urdf_file, tree);   // 从文件中解释模型
+    KDL::Tree tree;                              // model tree
+    kdl_parser::treeFromFile(urdf_file, tree);   // parse from urdf file
 
-    KDL::Chain chain                             // 运动链
-    tree.getChain("<start_segment_name>", "<end_segment_name>", tree);  // 获取运动链
+    KDL::Chain chain                             // link chains
+    tree.getChain("<start_segment_name>", "<end_segment_name>", tree);
 
-正向运动学
-~~~~~~~~~~
+Forward Kinematics/Dynamics
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: cpp
 
@@ -65,8 +63,8 @@ ROS 安装 & 使用
     KDL::Frame end_frame;
     fk_solver->JntToCart(joint_position, end_frame);
 
-逆向运动学
-~~~~~~~~~~
+Inverse Kinematics/Dynamics
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: cpp
 

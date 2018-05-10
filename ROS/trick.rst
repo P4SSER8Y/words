@@ -1,5 +1,11 @@
-小技巧
+Tricks
 ======
 
-+ 存储消息到文件
-    + ``rostopic echo -p <topic_name> > <file_name>``
++ record messages to file (csv-like format) ::
+
+    rostopic echo -p <topic_name> > <file_name>
+
++ preview urdf/xacro models
+
+    - official website: https://github.com/OTL/urdf-viz
+    - preview with ``urdf-viz <urdf_or_xacro_file>``
