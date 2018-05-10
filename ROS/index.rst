@@ -8,5 +8,6 @@ This is something about ROS.
 
    template_cpp
    orocos_kdl
+   ur5
    trick
 
