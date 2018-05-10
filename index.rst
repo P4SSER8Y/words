@@ -15,4 +15,5 @@ words
    :caption: main
 
    ROS/index.rst
+   MISC/index.rst
 
