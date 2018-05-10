@@ -111,25 +111,38 @@ htmlhelp_basename = 'wordsdoc'
 
 # -- Options for LaTeX output ------------------------------------------------
 
-latex_engine = 'xelatex'
-
-latex_elements = {
-    # The paper size ('letterpaper' or 'a4paper').
-    #
-    # 'papersize': 'letterpaper',
-
-    # The font size ('10pt', '11pt' or '12pt').
-    #
-    # 'pointsize': '10pt',
-
-    # Additional stuff for the LaTeX preamble.
-    #
-    # 'preamble': '',
-
-    # Latex figure (float) alignment
-    #
-    # 'figure_align': 'htbp',
-}
+import os
+is_on_rtd = os.environ.get('READTHEDOCS') == 'True'
+if is_on_rtd:
+    latex_elements = {
+        'preamble': r"""
+            \hypersetup{unicode=true}
+            \usepackage{CJKutf8}
+            \DeclareUnicodeCharacter{00A0}{\nobreakspace}
+            \DeclareUnicodeCharacter{2203}{\ensuremath{\exists}}
+            \DeclareUnicodeCharacter{2200}{\ensuremath{\forall}}
+            \DeclareUnicodeCharacter{2286}{\ensuremath{\subseteq}}
+            \DeclareUnicodeCharacter{2713}{x}
+            \DeclareUnicodeCharacter{27FA}{\ensuremath{\Longleftrightarrow}}
+            \DeclareUnicodeCharacter{221A}{\ensuremath{\sqrt{}}}
+            \DeclareUnicodeCharacter{221B}{\ensuremath{\sqrt[3]{}}}
+            \DeclareUnicodeCharacter{2295}{\ensuremath{\oplus}}
+            \DeclareUnicodeCharacter{2297}{\ensuremath{\otimes}}
+            \begin{CJK}{UTF8}{gbsn}
+            \AtEndDocument{\end{CJK}}
+        """
+    }
+else:
+    latex_engine = 'xelatex'
+    latex_elements = {
+        'fontpkg': r"""
+            \usepackage[fallback]{xeCJK}
+            \usepackage{}
+            \setmainfont{Times New Roman}
+            \setsansfont{Helvetica}
+            \setCJKmainfont[BoldFont=黑体, ItalicFont=仿宋]{宋体}
+        """
+    }
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
