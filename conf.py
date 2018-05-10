@@ -84,7 +84,7 @@ html_theme = 'sphinx_rtd_theme'
 # documentation.
 #
 html_theme_options = {
-        'display_version': False
+    'display_version': False
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -110,6 +110,8 @@ htmlhelp_basename = 'wordsdoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
+
+latex_engine = 'xelatex'
 
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
